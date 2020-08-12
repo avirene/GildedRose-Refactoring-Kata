@@ -44,6 +44,24 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to be <= 50
     end
+
+    xit "raises an error if the quality is set to more than 50 on initialisation" do
+      expect { Item.new("item", 50, 60) }.to raise_error
+    end
+
+    it "never sells Sulfuras" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 1, 80)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).not_to eq(0)
+    end
+
+    it "never decreases the quality of Sulfuras" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 1, 80)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).not_to be < 80
+    end
+
+
   end
 
 end
