@@ -20,7 +20,12 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].sell_in).to be < 1
     end
-    
+
+    it "lowers the quality twice as fast after the sell by date has passed" do
+      items = [Item.new("normal item", 0, 2)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq(0)
+    end
   end
 
 end
