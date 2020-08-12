@@ -10,8 +10,8 @@ class GildedRose
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros" and item.name != "Conjured"
             item.quality = item.quality - 1
-          # elsif item.name == "Conjured"
-          #   item.quality = item.quality - 2
+          elsif item.name == "Conjured"
+            item.quality = item.quality - 2
           end
         end
       else
