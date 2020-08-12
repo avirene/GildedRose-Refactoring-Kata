@@ -8,6 +8,12 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].name).to eq "foo"
     end
+
+    it "changes the quality of normal items" do
+      items = [Item.new("normal item", 1, 1)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).not_to eq(1)
+    end
   end
 
 end
